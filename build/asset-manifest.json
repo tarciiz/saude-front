@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/saude-teste/static/css/main.836cb919.css",
+    "main.js": "/saude-teste/static/js/main.19a7b926.js",
+    "static/js/787.567154c4.chunk.js": "/saude-teste/static/js/787.567154c4.chunk.js",
+    "index.html": "/saude-teste/index.html",
+    "main.836cb919.css.map": "/saude-teste/static/css/main.836cb919.css.map",
+    "main.19a7b926.js.map": "/saude-teste/static/js/main.19a7b926.js.map",
+    "787.567154c4.chunk.js.map": "/saude-teste/static/js/787.567154c4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.836cb919.css",
+    "static/js/main.19a7b926.js"
+  ]
+}

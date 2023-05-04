@@ -1,0 +1,14 @@
+{
+    "o-name":"user",
+    "o-label":"Usuário",
+    "fields":[
+        {"f-name":"name",
+         "f-label":"Nome",
+         "f-type":"text"},
+
+         {"f-name":"email",
+          "f-label":"E-Mail",
+          "f-type":"email"}
+    ]
+
+}
