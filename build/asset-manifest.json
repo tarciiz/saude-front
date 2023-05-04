@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/saude-teste/static/css/main.836cb919.css",
-    "main.js": "/saude-teste/static/js/main.19a7b926.js",
-    "static/js/787.567154c4.chunk.js": "/saude-teste/static/js/787.567154c4.chunk.js",
-    "index.html": "/saude-teste/index.html",
-    "main.836cb919.css.map": "/saude-teste/static/css/main.836cb919.css.map",
-    "main.19a7b926.js.map": "/saude-teste/static/js/main.19a7b926.js.map",
-    "787.567154c4.chunk.js.map": "/saude-teste/static/js/787.567154c4.chunk.js.map"
+    "main.css": "/saude-front/static/css/main.836cb919.css",
+    "main.js": "/saude-front/static/js/main.8a671398.js",
+    "static/js/787.567154c4.chunk.js": "/saude-front/static/js/787.567154c4.chunk.js",
+    "index.html": "/saude-front/index.html",
+    "main.836cb919.css.map": "/saude-front/static/css/main.836cb919.css.map",
+    "main.8a671398.js.map": "/saude-front/static/js/main.8a671398.js.map",
+    "787.567154c4.chunk.js.map": "/saude-front/static/js/787.567154c4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.836cb919.css",
-    "static/js/main.19a7b926.js"
+    "static/js/main.8a671398.js"
   ]
 }
