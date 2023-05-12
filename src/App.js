@@ -7,16 +7,15 @@ import LoginPage from './pages/LoginPage';
 
 
 function App() {
-    const basename = window.location.pathname || '';
   return (
-
+    
     <div className="App" style = {{height:"100vh"}}>
       <ToastContainer />
-      <Router basename={basename}>
+      <Router basename={window.location.pathname || ''}>
         <Routes>
-          <Route exact path={basename+'/'} element={< LoginPage />}></Route>
-          <Route exact path={basename+'/home'} element={< Home />}></Route>
-          <Route exact path={basename+'/profile'} element={< Profile />}></Route>
+          <Route exact path='/' element={< LoginPage />}></Route>
+          <Route exact path='/home' element={< Home />}></Route>
+          <Route exact path='/profile' element={< Profile />}></Route>
         </Routes>
       </Router>
 
