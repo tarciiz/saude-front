@@ -7,7 +7,7 @@ import { BrowserRouter, Link } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter basename="/">
+  <BrowserRouter basename={window.location.pathname || ''}>
      <App/>
   </BrowserRouter>
 );
