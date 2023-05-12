@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/saude-front/static/css/main.f45533de.css",
+    "main.js": "/saude-front/static/js/main.41d0ce81.js",
+    "static/js/787.567154c4.chunk.js": "/saude-front/static/js/787.567154c4.chunk.js",
+    "index.html": "/saude-front/index.html",
+    "main.f45533de.css.map": "/saude-front/static/css/main.f45533de.css.map",
+    "main.41d0ce81.js.map": "/saude-front/static/js/main.41d0ce81.js.map",
+    "787.567154c4.chunk.js.map": "/saude-front/static/js/787.567154c4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f45533de.css",
+    "static/js/main.41d0ce81.js"
+  ]
+}
