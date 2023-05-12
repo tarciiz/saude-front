@@ -11,9 +11,9 @@ function App() {
     
     <div className="App" style = {{height:"100vh"}}>
       <ToastContainer />
-      <Router>
+      <Router basename={window.location.pathname || ''}>
         <Routes>
-          <Route exact path='/saude-front' element={< LoginPage />}></Route>
+          <Route exact path='/' element={< LoginPage />}></Route>
           <Route exact path='/home' element={< Home />}></Route>
           <Route exact path='/profile' element={< Profile />}></Route>
         </Routes>
