@@ -12,13 +12,16 @@ import {basePath} from '../config/session';
 class Menu extends Component {
   render() {
     const navigate = useNavigate();
+    const handleNav = (to) => {
+      navigate(basePath+to);
+    };
     return (<nav style={{'backgroundColor':'#FFA7A7', 'height':'100%'}} class="shadow">
               <div class="p-3 mb-30">
                 <div class="d-flex align-items-center" >
                     <img src={getUser().profilePicture ? getUser().profilePicture.fullPath :"https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a146cd5c-bb6b-455b-87bc-669be1ede5cd/daftb87-abaa732f-dbfa-4d78-8c10-87ac128b0bb1.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2ExNDZjZDVjLWJiNmItNDU1Yi04N2JjLTY2OWJlMWVkZTVjZFwvZGFmdGI4Ny1hYmFhNzMyZi1kYmZhLTRkNzgtOGMxMC04N2FjMTI4YjBiYjEuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.yqO5cCrD-Ty_D0-SLaFb8RD6FcrgJ97J1pboyS8Igns"} class="rounded-circle" alt="..." width="40px" style={{"maxHeight":"40px"}}/>
 
                     <p class="text-truncate overflow-hidden m-0">{getUser().name}</p>
-                    <a onClick={()=>{navigate(basePath+'/profile')}}><FontAwesomeIcon style={{'color': '#000', 'width':'10px'}} icon={faChevronRight} /> </a>
+                    <a onClick={()=>{handleNav('/profile')}}><FontAwesomeIcon style={{'color': '#000', 'width':'10px'}} icon={faChevronRight} /> </a>
                 </div>
               </div>
 
@@ -27,7 +30,7 @@ class Menu extends Component {
                   
                   <a class="nav-link active" onClick={(e)=>{
                     activeElement(e)
-                    navigate(basePath+'/home')
+                    handleNav('/home')
                     }} style={{'color':'#000'}}>
                     <FontAwesomeIcon style={{'color': '#000', 'width':'26px'}} icon={faHome} /> &nbsp;
                     Início
@@ -36,7 +39,7 @@ class Menu extends Component {
                 <li class="nav-item">
                   <a class="nav-link" onClick={(e)=>{
                     activeElement(e)
-                    navigate(basePath+'/')
+                    handleNav('/')
                   
                   }} style={{'color':'#000'}}>
                     <FontAwesomeIcon style={{'color': '#000', 'width':'26px'}} icon={faDoorOpen} /> &nbsp;
