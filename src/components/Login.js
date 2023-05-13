@@ -70,7 +70,9 @@ function Login(){
 
 
                             setUser(result)
-                            window.open(process.env.PUBLIC_URL+'/home', '_self')
+                            let url = process.env.PUBLIC_URL+'/home'
+                            console.log("url ", url)
+                            window.open(url, '_self')
                         }
                     }).catch(error=>{
                         console.log('Error ', error)
