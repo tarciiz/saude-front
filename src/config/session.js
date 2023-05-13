@@ -1,7 +1,9 @@
 
 import { toast } from 'react-toastify';
 
-export const basePath = '/saude-front'
+const basePath = '/saude-front'
+
+export { basePath }
 
 const errorMessage = (m)=>{
     toast.error(m, {

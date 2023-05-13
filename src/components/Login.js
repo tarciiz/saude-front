@@ -6,7 +6,7 @@ import { get_params } from '../config/requisitions';
 import { get } from '../config/requisitions';
 import { setUser} from '../config/session';
 import { useNavigate } from 'react-router-dom';
-import basePath from '../config/session';
+import {basePath} from '../config/session';
 
 
 

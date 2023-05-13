@@ -5,7 +5,7 @@ import { faDoorOpen } from '@fortawesome/free-solid-svg-icons'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { getUser} from '../config/session';
 import { Link} from 'react-router-dom';
-import basePath from '../config/session';
+import {basePath} from '../config/session';
 
 
 class Menu extends Component {
