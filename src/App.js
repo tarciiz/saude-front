@@ -11,7 +11,7 @@ function App() {
     
     <div className="App" style = {{height:"100vh"}}>
       <ToastContainer />
-      <Router basename="/saude-front">
+      <Router basename={process.env.PUBLIC_URL}>
         <Routes>
           <Route exact path='/' element={< LoginPage />}></Route>
           <Route exact path='/home' element={< Home />}></Route>
