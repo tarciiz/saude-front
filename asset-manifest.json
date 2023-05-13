@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "./static/css/main.f45533de.css",
-    "main.js": "./static/js/main.a3397b7a.js",
-    "static/js/787.14d33847.chunk.js": "./static/js/787.14d33847.chunk.js",
-    "index.html": "./index.html",
-    "main.f45533de.css.map": "./static/css/main.f45533de.css.map",
-    "main.a3397b7a.js.map": "./static/js/main.a3397b7a.js.map",
-    "787.14d33847.chunk.js.map": "./static/js/787.14d33847.chunk.js.map"
+    "main.css": "/saude-front/static/css/main.f45533de.css",
+    "main.js": "/saude-front/static/js/main.acf76e1e.js",
+    "static/js/787.5bd3f4a8.chunk.js": "/saude-front/static/js/787.5bd3f4a8.chunk.js",
+    "index.html": "/saude-front/index.html",
+    "main.f45533de.css.map": "/saude-front/static/css/main.f45533de.css.map",
+    "main.acf76e1e.js.map": "/saude-front/static/js/main.acf76e1e.js.map",
+    "787.5bd3f4a8.chunk.js.map": "/saude-front/static/js/787.5bd3f4a8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f45533de.css",
-    "static/js/main.a3397b7a.js"
+    "static/js/main.acf76e1e.js"
   ]
 }
