@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import LoginPage from './pages/LoginPage';
-import {basePath} from './config/session';
+import {basePath} from './config/session'
 
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
     
     <div className="App" style = {{height:"100vh"}}>
       <ToastContainer />
-      <Router basename={basePath}>
+      <Router>
         <Routes>
           <Route exact path={basePath+'/'} element={< LoginPage />}></Route>
           <Route exact path={basePath+'/home'} element={< Home />}></Route>
