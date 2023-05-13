@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import { get_params } from '../config/requisitions';
 import { get } from '../config/requisitions';
 import { setUser} from '../config/session';
-import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router';
 
 
 function Login(){
