@@ -63,4 +63,4 @@ function activeElement(event){
 
 }
 
-export default Menu;
+export default withRouter(Menu);
