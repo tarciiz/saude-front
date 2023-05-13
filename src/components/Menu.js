@@ -5,15 +5,15 @@ import { faDoorOpen } from '@fortawesome/free-solid-svg-icons'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { getUser} from '../config/session';
 import { Link} from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import {basePath} from '../config/session';
 
 
 class Menu extends Component {
   render() {
-    const navigate = useNavigate();
     const handleNav = (to) => {
-      navigate(basePath+to);
+      const { history } = this.props;
+      history.push(to);
     };
     return (<nav style={{'backgroundColor':'#FFA7A7', 'height':'100%'}} class="shadow">
               <div class="p-3 mb-30">
