@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { get_params } from '../config/requisitions';
 import { get } from '../config/requisitions';
 import { setUser} from '../config/session';
+import { useNavigate } from 'react-router-dom';
 
 
 function Login(){
@@ -70,9 +71,13 @@ function Login(){
 
 
                             setUser(result)
-                            let url = process.env.PUBLIC_URL+'/home'
-                            console.log("url ", url)
-                            window.open(url, '_self')
+                            const navigate = useNavigate();
+                            navigate('/home');
+                            //let url = process.env.PUBLIC_URL+'/home'
+                            
+
+                            //console.log("url ", url)
+                            //window.open(url, '_self')
                         }
                     }).catch(error=>{
                         console.log('Error ', error)
