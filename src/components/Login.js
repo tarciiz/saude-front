@@ -10,6 +10,12 @@ import { useNavigate } from 'react-router-dom';
 
 function Login(){
     let inputBg = {'background-color': '#E9ECEF'};
+    const navigate = useNavigate();
+
+    const handleNav = () => {
+        navigate('/home');
+      };
+    
 
     var login
     var password
@@ -71,8 +77,7 @@ function Login(){
 
 
                             setUser(result)
-                            const navigate = useNavigate();
-                            navigate('/home');
+                            handleNav();
                             //let url = process.env.PUBLIC_URL+'/home'
                             
 
