@@ -11,7 +11,7 @@ function App() {
     
     <div className="App" style = {{height:"100vh"}}>
       <ToastContainer />
-      <Router basename={window.location.pathname || ''}>
+      <Router basename="/saude-front">
         <Routes>
           <Route exact path='/' element={< LoginPage />}></Route>
           <Route exact path='/home' element={< Home />}></Route>
