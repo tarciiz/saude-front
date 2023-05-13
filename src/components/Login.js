@@ -70,7 +70,7 @@ function Login(){
 
 
                             setUser(result)
-                            window.open('/home', '_self')
+                            window.open(process.env.PUBLIC_URL+'/home', '_self')
                         }
                     }).catch(error=>{
                         console.log('Error ', error)

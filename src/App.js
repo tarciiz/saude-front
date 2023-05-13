@@ -13,9 +13,9 @@ function App() {
       <ToastContainer />
       <Router basename={process.env.PUBLIC_URL}>
         <Routes>
-          <Route exact path='/' element={< LoginPage />}></Route>
-          <Route exact path='/home' element={< Home />}></Route>
-          <Route exact path='/profile' element={< Profile />}></Route>
+          <Route exact path={process.env.PUBLIC_URL+'/'} element={< LoginPage />}></Route>
+          <Route exact path={process.env.PUBLIC_URL+'/home'} element={< Home />}></Route>
+          <Route exact path={process.env.PUBLIC_URL+'/profile'} element={< Profile />}></Route>
         </Routes>
       </Router>
 
