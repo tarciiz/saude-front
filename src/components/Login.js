@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { get_params } from '../config/requisitions';
 import { get } from '../config/requisitions';
 import { setUser} from '../config/session';
+import { useHistory } from 'react-router-dom';
 
 
 function Login(){
@@ -70,7 +71,9 @@ function Login(){
 
 
                             setUser(result)
-                            window.open('/home', '_self')
+                            const history = useHistory();
+                            history.push('/home');
+
                         }
                     }).catch(error=>{
                         console.log('Error ', error)
