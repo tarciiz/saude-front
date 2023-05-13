@@ -1,5 +1,8 @@
 
 import { toast } from 'react-toastify';
+
+export const basePath = '/saude-front'
+
 const errorMessage = (m)=>{
     toast.error(m, {
         position: toast.POSITION.TOP_CENTER,
@@ -15,7 +18,7 @@ export function validateUser(){
     let user = localStorage.getItem('logged_user')
     if(user == null || user == undefined){
         errorMessage("Por Favor, faça login para acessar a página")
-        window.location.href = "/"
+        window.location.href = basePath+"/"
     }
 }
 
@@ -31,5 +34,5 @@ export function getUser(){
 
 export function logOut(){
     localStorage.removeItem('logged_user')
-    window.location.href = "/"
+    window.location.href = basePath+"/"
 }

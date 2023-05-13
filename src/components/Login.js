@@ -6,6 +6,8 @@ import { get_params } from '../config/requisitions';
 import { get } from '../config/requisitions';
 import { setUser} from '../config/session';
 import { useNavigate } from 'react-router-dom';
+import basePath from './config/session';
+
 
 
 function Login(){
@@ -13,7 +15,7 @@ function Login(){
     const navigate = useNavigate();
 
     const handleNav = () => {
-        navigate('/home');
+        navigate(basePath+'/home');
       };
     
 
