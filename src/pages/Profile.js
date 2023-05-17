@@ -3,6 +3,8 @@ import BasePage from "./BasePage";
 import {getUser, setUser} from "../config/session";
 import {uploadFile, post} from "../config/requisitions";
 import ImageCropper from "../components/ImageCropper";
+import InsertRecord from "../components/InsertRecord";
+import conf from "../object-config/user.json";
 
 
 function Profile(){
@@ -17,6 +19,7 @@ function Profile(){
             <p class="text-truncate overflow-hidden m-0">{getUser().name}</p>
 
             <ImageCropper />
+            <InsertRecord showTitle={true} configurations={conf}/>
             </div>
 
         </BasePage>

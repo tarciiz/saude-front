@@ -1,0 +1,36 @@
+{
+    "o_name":"medicine",
+    "o_label":"Remédio",
+    "columns":2,
+    "endpoints":{
+        "get":"",
+        "save":"medicine/save",
+        "update":""
+    },
+    "fields":[
+        {"f_name":"name",
+         "f_label":"Nome",
+         "f_type":"text"},
+
+         {"f_name":"type",
+          "f_label":"Tipo",
+          "f_type":"text"},
+
+          {"f_name":"weight",
+          "f_label":"Peso",
+          "f_type":"number"},
+
+          {"f_name":"factory",
+          "f_label":"Fabricante",
+          "f_type":"text",
+          "f_format":"lookup",
+          "lookup":{
+              
+          }},
+
+          {"f_name":"price",
+          "f_label":"Preço",
+          "f_type":"text"}
+    ]
+
+}

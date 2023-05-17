@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import {post, get} from "../config/requisitions";
 import ImageCropper from "../components/ImageCropper";
+import LookupField from "../components/LookupField/LookupField";
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import 'react-toastify/dist/ReactToastify.css';
@@ -17,22 +18,27 @@ function InsertRecord(props){
     const endpoint_update = props.configurations.endpoints.update
 
     //props need to have conf attribute
-    const [arrays, setArrays] = useState(separateFieldsByColumns(fields, columns))
-    const [rownum, setRownum] = useState(separateFieldsByColumns(fields, columns).length)
-    const [forView, setForView] = useState(props.forView)
+    const [arrays, setArrays] = useState([])
+    const [rownum, setRownum] = useState(0)
+    const [forView, setForView] = useState(false)
     const [isHovering, setIsHovering] = useState(false);
+    const [objectId, setObjectId] = useState(props.objectId ? props.objectId: undefined);
 
 
     const [object, setObject] = useState({})
     const [existsObject, setExistsObject] = useState({})
 
     useEffect(() => {
-        let objectId = props.objectId
+        setArrays(separateFieldsByColumns(fields, columns))
+        setRownum(separateFieldsByColumns(fields, columns).length)
+
+        
         if(objectId){
             get(endpoint_get+objectId).then(resultObj=>{
                 console.log("Result ", resultObj)
                 setExistsObject(resultObj)
                 setObject({"id":resultObj.id})
+                setForView(true)
             }).catch(error=>{
                 console.log("Erro ", error)
             })
@@ -45,8 +51,15 @@ function InsertRecord(props){
         
         let field = (<input id={f.f_name} class="form-control" name={f.f_name} type={f.f_type} onChange={e=>buildObject(e)} defaultValue={existsObject[f.f_name] ? existsObject[f.f_name]: ''}/>)
 
-        if(f.f_format && f.f_format === "image"){
-            field = (<ImageCropper/>)
+        if(f.f_format){
+            switch(f.f_format){
+                case "image":
+                    field = (<ImageCropper/>)
+                    break;
+                case "lookup":
+                    field = <LookupField forView={forView} field={f} defObj={existsObject} buildObject={e=>buildObject(e)}/>
+                    break;
+            } 
         }
 
         if(forView){
@@ -67,7 +80,7 @@ function InsertRecord(props){
                 <>
                     <label for={f.f_name} style={{color:'gray'}}>{f.f_label}</label>
                     <br/>
-
+            
                     {field}
                 </>
                 
@@ -103,32 +116,10 @@ function InsertRecord(props){
     function saveObject(){
         console.log("Object to save", object)
         console.log("Save on ", endpoint_save)
-        setForView(true)
 
-        if(object.id){
-            post(endpoint_update, object).then(savedObj=>{
-                toast.success("Salvo com sucesso 😍!", {
-                    position: toast.POSITION.TOP_CENTER,
-                    autoClose: 2000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                  });
-                      setExistsObject(savedObj);
-
-                }).catch(error=>{
-                    toast.error("Erro ao salvar 😥!", {
-                        position: toast.POSITION.TOP_CENTER,
-                        autoClose: 2000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                    });
-                })
-        }else{
-            post(endpoint_save, object).then(savedObj=>{
+        var end =  object.id ? endpoint_update: endpoint_save;
+        
+        post(end, object).then(savedObj=>{
             toast.success("Salvo com sucesso 😍!", {
                 position: toast.POSITION.TOP_CENTER,
                 autoClose: 2000,
@@ -136,8 +127,11 @@ function InsertRecord(props){
                 closeOnClick: true,
                 pauseOnHover: true,
                 draggable: true,
-              });
-              setExistsObject(savedObj);
+                });
+                setExistsObject(savedObj);
+                setForView(true)
+
+
             }).catch(error=>{
                 toast.error("Erro ao salvar 😥!", {
                     position: toast.POSITION.TOP_CENTER,
@@ -147,8 +141,9 @@ function InsertRecord(props){
                     pauseOnHover: true,
                     draggable: true,
                 });
+                setForView(false)
+
             })
-        }
 
     }
 
@@ -175,6 +170,7 @@ function InsertRecord(props){
         if (currentRow.length > 0) {
           rows.push(currentRow);
         }
+        console.log("ROWS", rows)
       
         return rows;
     }

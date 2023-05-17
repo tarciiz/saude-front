@@ -1,14 +1,35 @@
 {
-    "o-name":"user",
-    "o-label":"Usuário",
+    "o_name":"user",
+    "o_label":"Usuário",
+    "columns":2,
+    "endpoints":{
+        "get":"",
+        "save":"",
+        "update":""
+    },
     "fields":[
-        {"f-name":"name",
-         "f-label":"Nome",
-         "f-type":"text"},
+        {"f_name":"name",
+         "f_label":"Nome",
+         "f_type":"text"},
 
-         {"f-name":"email",
-          "f-label":"E-Mail",
-          "f-type":"email"}
+         {"f_name":"email",
+          "f_label":"E-Mail",
+          "f_type":"email"},
+
+          {"f_name":"login",
+          "f_label":"Login",
+          "f_type":"text"},
+
+          {"f_name":"profilePicture",
+          "f_label":"Foto do perfil",
+          "f_type":"text",
+          "f_format":"lookup",
+          "lookup":{
+            "l_fa_logo":"fa-user",
+            "endpoints":{
+                "get":"filelink/all"
+            }
+          }}
     ]
 
 }

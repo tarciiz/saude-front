@@ -1,0 +1,14 @@
+.input-with-icon {
+    position: relative;
+}
+
+.input-with-icon #fa {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+
+.input-with-icon input {
+    padding-left: 30px; /* Adjust as needed based on the icon size */
+}

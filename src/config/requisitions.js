@@ -1,7 +1,7 @@
 import {getUser} from './session';
 
-//const HOST = 'http://localhost:8083/'
-const HOST = 'https://tarciiz-webserver-saude.loca.lt/'
+const HOST = 'http://localhost:8083/'
+//const HOST = 'https://tarciiz-webserver-saude.loca.lt/'
 
 const API = 'api/v1/app/'
 
