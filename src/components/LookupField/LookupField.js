@@ -36,7 +36,7 @@ function LookupField(props){
 
                 {selItem === undefined ? 
                 <input id={f.f_name} class="form-control" name={f.f_name} type={f.f_type} onKeyDown={e=>find(e)} defaultValue=""/>
-                :<input id={f.f_name} class="form-control" name={f.f_name} type={f.f_type} value={selItem ? selItem.name :''} />}
+                :<input id={f.f_name+'2'} class="form-control" name={f.f_name} type={f.f_type} value={selItem ? selItem.name :''} />}
                 
                 
             </div>

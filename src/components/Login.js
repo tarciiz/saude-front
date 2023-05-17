@@ -15,7 +15,7 @@ function Login(){
     const navigate = useNavigate();
 
     const handleNav = () => {
-        navigate(basePath+'/home');
+        navigate('/home');
       };
     
 
