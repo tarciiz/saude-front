@@ -1,7 +1,7 @@
 import {getUser} from './session';
 
 //const HOST = 'http://localhost:8083/'
-const HOST = 'https://saude-server.serveo.net/'
+const HOST = 'https://tarciiz-saude-server.serveo.net/'
 
 const API = 'api/v1/app/'
 
