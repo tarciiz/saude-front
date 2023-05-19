@@ -34,7 +34,7 @@ function InsertRecord(props){
 
         
         if(objectId){
-            get(endpoint_get+objectId).then(resultObj=>{
+            get(endpoint_get+'/'+objectId).then(resultObj=>{
                 console.log("Result ", resultObj)
                 setExistsObject(resultObj)
                 setObject({"id":resultObj.id})
@@ -57,7 +57,7 @@ function InsertRecord(props){
                     field = (<ImageCropper/>)
                     break;
                 case "lookup":
-                    field = <LookupField forView={forView} field={f} defObj={existsObject} buildObject={e=>buildObject(e)}/>
+                    field = <LookupField forView={forView} field={f} defVal={existsObject[f.f_name]} buildObject={e=>buildObject(e)}/>
                     break;
             } 
         }
@@ -66,7 +66,16 @@ function InsertRecord(props){
             field = (
                     <label class="mb-1" id={f.f_name} name={f.f_name} style={{'width': '100%', 'display':'flex'}}>
                         <b style={{'margin-right': 'auto'}}>
-                            {existsObject[f.f_name] ? existsObject[f.f_name]: ''}
+                            {
+                                existsObject[f.f_name] ? 
+                                
+                                (typeof existsObject[f.f_name]  === "object")? existsObject[f.f_name].name:existsObject[f.f_name]
+
+                                : ''
+                                
+
+                            }
+                            {}
                         </b>
                         <span class="icon-wrapper" style={{'position': 'relative'}}>
                             <FontAwesomeIcon class="icon" style={{'color': 'gray', 'width':'16px', 'align-self':'center', 'opacity': isHovering ? '1':'0', 'transition': 'opacity 0.1s'}} icon={faPenToSquare} onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)} onClick={(e)=>{setForView(false)}}/>

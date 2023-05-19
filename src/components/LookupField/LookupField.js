@@ -13,7 +13,7 @@ function LookupField(props){
     const forView = props.forView ? props.forView: false;
     const buildObject = props.buildObject;
 
-    const [selItem, setSelItem] = useState(undefined);
+    const [selItem, setSelItem] = useState(props.defVal ? {[f.f_name]:props.defVal}: undefined);
     const [showDown, setShowDown] = useState(false);
 
     const [list, setList] = useState([{id:'123', name:"Teste"}, {id:"0981", name:"Abue bue"}])
@@ -36,7 +36,7 @@ function LookupField(props){
 
                 {selItem === undefined ? 
                 <input id={f.f_name} class="form-control" name={f.f_name} type={f.f_type} onKeyDown={e=>find(e)} defaultValue=""/>
-                :<input id={f.f_name+'2'} class="form-control" name={f.f_name} type={f.f_type} value={selItem ? selItem.name :''} />}
+                :<div id={f.f_name+'-div'} className="div-look" class="form-control"><i class={"fas "+f.lookup.l_fa_logo} style={{'marginRight':'10px'}}></i>{selItem ? selItem.name :''}</div>}
                 
                 
             </div>

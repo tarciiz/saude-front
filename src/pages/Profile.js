@@ -19,7 +19,7 @@ function Profile(){
             <p class="text-truncate overflow-hidden m-0">{getUser().name}</p>
 
             <ImageCropper />
-            <InsertRecord showTitle={true} configurations={conf}/>
+            <InsertRecord showTitle={true} configurations={conf} objectId="ac5fee70-1219-42fe-a854-0ca436a27a46"/>
             </div>
 
         </BasePage>

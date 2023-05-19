@@ -3,9 +3,9 @@
     "o_label":"Usuário",
     "columns":2,
     "endpoints":{
-        "get":"",
-        "save":"",
-        "update":""
+        "get":"user/find",
+        "save":"user/save",
+        "update":"user/update"
     },
     "fields":[
         {"f_name":"name",
@@ -19,6 +19,10 @@
           {"f_name":"login",
           "f_label":"Login",
           "f_type":"text"},
+
+          {"f_name":"password",
+          "f_label":"Senha",
+          "f_type":"password"},
 
           {"f_name":"profilePicture",
           "f_label":"Foto do perfil",
