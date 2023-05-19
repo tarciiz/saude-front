@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/saude-front/static/css/main.9d325e51.css",
-    "main.js": "/saude-front/static/js/main.4756440a.js",
+    "main.css": "/saude-front/static/css/main.95d0aaff.css",
+    "main.js": "/saude-front/static/js/main.c56e852c.js",
     "static/js/787.567154c4.chunk.js": "/saude-front/static/js/787.567154c4.chunk.js",
     "index.html": "/saude-front/index.html",
-    "main.9d325e51.css.map": "/saude-front/static/css/main.9d325e51.css.map",
-    "main.4756440a.js.map": "/saude-front/static/js/main.4756440a.js.map",
+    "main.95d0aaff.css.map": "/saude-front/static/css/main.95d0aaff.css.map",
+    "main.c56e852c.js.map": "/saude-front/static/js/main.c56e852c.js.map",
     "787.567154c4.chunk.js.map": "/saude-front/static/js/787.567154c4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9d325e51.css",
-    "static/js/main.4756440a.js"
+    "static/css/main.95d0aaff.css",
+    "static/js/main.c56e852c.js"
   ]
 }
