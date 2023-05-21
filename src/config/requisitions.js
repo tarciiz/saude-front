@@ -1,18 +1,25 @@
 import {getUser} from './session';
 
-const HOST = 'http://localhost:8083/'
-//const HOST = 'https://tarciiz-saude-server.serveo.net/'
+//const HOST = 'http://localhost:8083/'
+const HOST = 'https://tarciiz-saude-server.serveo.net/'
 
 const API = 'api/v1/app/'
+
+
+const headers = {
+    'Content-type': 'application/json', 
+    'Bypass-Tunnel-Reminder':'true',
+    'UserId': getUser().id
+}
 
 export async function get(endpoint){
     
     try{
-        const fetched = await fetch(HOST+API+endpoint, {method:'GET', headers: {'Content-type': 'application/json', "Bypass-Tunnel-Reminder":"true"}})
+        const fetched = await fetch(HOST+API+endpoint, {method:'GET', headers: headers})
         
         if (fetched.ok){
             const result = await fetched.json();
-            
+
             return result
         }
         throw fetched
@@ -29,7 +36,7 @@ export async function get_params(endpoint, paramsMap){
      try{
         let url = HOST+API+endpoint+'?'+params.join('&')
         console.log('url', url)
-         const fetched = await fetch(url, {method:'GET', headers: {'Content-type': 'application/json', "Bypass-Tunnel-Reminder":"true"}})
+         const fetched = await fetch(url, {method:'GET', headers: headers})
          console.log('fecthed ', fetched)
         
         if (fetched.ok){
@@ -49,7 +56,25 @@ export async function get_params(endpoint, paramsMap){
 export async function post(endpoint, body){
     
     try{
-        const fetched = await fetch(HOST+API+endpoint, {method:'POST', headers: {'Content-type': 'application/json', "Bypass-Tunnel-Reminder":"true"}, body:JSON.stringify(body)})
+        const fetched = await fetch(HOST+API+endpoint, {method:'POST', headers: headers, body:JSON.stringify(body)})
+        
+        if (fetched.ok){
+            const result = await fetched.json();
+            
+            return result
+        }
+        throw fetched
+    }catch(error){
+        
+        // showMessage({message:error.type + ' - ' + error.status, type:'error'})
+        throw error
+    }
+}
+
+export async function login_user(login, password){
+    
+    try{
+        const fetched = await fetch(HOST+API+'user/login?login='+login+'&password='+password, {method:'POST', headers: headers, body:JSON.stringify({"login":login, "password":password})})
         
         if (fetched.ok){
             const result = await fetched.json();
@@ -73,9 +98,7 @@ export async function uploadFile(endpoint, file, pi) {
       const response = await fetch(HOST+API+endpoint, {
         method: "POST",
         body: formData,
-        headers:{
-            "Bypass-Tunnel-Reminder":"true"
-        }
+        headers:headers
       });
   
       if (response.ok) {

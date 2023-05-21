@@ -2,12 +2,10 @@ import react from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeartbeat } from '@fortawesome/free-solid-svg-icons'
 import { toast } from 'react-toastify';
-import { get_params } from '../config/requisitions';
+import { login_user } from '../config/requisitions';
 import { get } from '../config/requisitions';
 import { setUser} from '../config/session';
 import { useNavigate } from 'react-router-dom';
-import {basePath} from '../config/session';
-
 
 
 function Login(){
@@ -68,10 +66,10 @@ function Login(){
                     console.log('Login ', login)
                     console.log('Senha ', password)
 
-                    get_params('user/login', {"login":login, "password":password}).then(result=>{
+                    login_user(login, password).then(result=>{
                         console.log("Result ", result)
 
-                        if(result == null || result == undefined){
+                        if(result == null || result === undefined){
                             errorMessage('Verifique as credencias e tente novamente.')
 
                         }else{
@@ -80,11 +78,6 @@ function Login(){
 
                             setUser(result)
                             handleNav();
-                            //let url = process.env.PUBLIC_URL+'/home'
-                            
-
-                            //console.log("url ", url)
-                            //window.open(url, '_self')
                         }
                     }).catch(error=>{
                         console.log('Error ', error)

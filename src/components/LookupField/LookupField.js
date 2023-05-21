@@ -13,19 +13,21 @@ function LookupField(props){
     const forView = props.forView ? props.forView: false;
     const buildObject = props.buildObject;
 
-    const [selItem, setSelItem] = useState(props.defVal ? {[f.f_name]:props.defVal}: undefined);
+    const [selItem, setSelItem] = useState(props.defVal ? props.defVal: undefined);
     const [showDown, setShowDown] = useState(false);
 
-    const [list, setList] = useState([{id:'123', name:"Teste"}, {id:"0981", name:"Abue bue"}])
+    const [list, setList] = useState([])
 
     useEffect(()=>{
-        get(endpoint_get).then(resultList=>{
-            console.log("Result ", resultList)
-            
-            setList(resultList)
-        }).catch(error=>{
-            console.log("Erro ", error)
-        })
+        if(!forView){
+            get(endpoint_get).then(resultList=>{
+                console.log("Result ", resultList)
+                
+                setList(resultList)
+            }).catch(error=>{
+                console.log("Erro ", error)
+            })
+        }
     },[])
     
     
@@ -36,7 +38,7 @@ function LookupField(props){
 
                 {selItem === undefined ? 
                 <input id={f.f_name} class="form-control" name={f.f_name} type={f.f_type} onKeyDown={e=>find(e)} defaultValue=""/>
-                :<div id={f.f_name+'-div'} className="div-look" class="form-control"><i class={"fas "+f.lookup.l_fa_logo} style={{'marginRight':'10px'}}></i>{selItem ? selItem.name :''}</div>}
+                :<div id={f.f_name+'-div'} className="div-look" class="form-control"><i class={"fas "+f.lookup.l_fa_logo} style={{'marginRight':'10px'}}></i>{selItem ? selItem[f.d_prop] :''}</div>}
                 
                 
             </div>
@@ -47,7 +49,7 @@ function LookupField(props){
                             <Dropdown.Item onClick={e=>{selectItem(item)}} eventKey={index.toString()}>
                                 <i class={"fas "+f.lookup.l_fa_logo} style={{'marginRight':'10px'}}></i>
                                 
-                                {item.name}
+                                {item[f.d_prop]}
                             </Dropdown.Item>
                     ))}
                 </Dropdown.Menu>

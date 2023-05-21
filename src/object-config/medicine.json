@@ -3,34 +3,47 @@
     "o_label":"Remédio",
     "columns":2,
     "endpoints":{
-        "get":"",
+        "get":"medicine/find",
+        "get_all":"medicine/all",
         "save":"medicine/save",
-        "update":""
+        "update":"medicine/update"
     },
     "fields":[
         {"f_name":"name",
          "f_label":"Nome",
          "f_type":"text"},
 
-         {"f_name":"type",
-          "f_label":"Tipo",
+          {"f_name":"description",
+          "f_label":"Descrição",
           "f_type":"text"},
-
-          {"f_name":"weight",
-          "f_label":"Peso",
-          "f_type":"number"},
-
-          {"f_name":"factory",
-          "f_label":"Fabricante",
-          "f_type":"text",
-          "f_format":"lookup",
-          "lookup":{
-              
-          }},
 
           {"f_name":"price",
           "f_label":"Preço",
-          "f_type":"text"}
+          "f_type":"number"},
+        
+          {"f_name":"updatedById",
+            "f_label":"Atualizado por",
+            "f_format":"user",
+            "f_type":"text",
+            "f_for_view":true},
+    
+            {"f_name":"updatedAt",
+            "f_label":"Atualizado em",
+            "f_format":"datetime",
+            "f_type":"date",
+            "f_for_view":true},
+    
+            {"f_name":"createdById",
+            "f_label":"Criado por",
+            "f_format":"user",
+            "f_type":"text",
+            "f_for_view":true},
+    
+            {"f_name":"createdAt",
+            "f_label":"Criado em",
+            "f_format":"datetime",
+            "f_type":"date",
+            "f_for_view":true}
     ]
 
 }

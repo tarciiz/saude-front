@@ -4,6 +4,7 @@
     "columns":2,
     "endpoints":{
         "get":"user/find",
+        "get_all":"user/all",
         "save":"user/save",
         "update":"user/update"
     },
@@ -28,12 +29,38 @@
           "f_label":"Foto do perfil",
           "f_type":"text",
           "f_format":"lookup",
+          "d_prop":"name",
           "lookup":{
             "l_fa_logo":"fa-user",
             "endpoints":{
                 "get":"filelink/all"
             }
-          }}
+          }},
+          
+        {"f_name":"updatedById",
+        "f_label":"Atualizado por",
+        "f_format":"user",
+        "f_type":"text",
+        "f_for_view":true},
+
+        {"f_name":"updatedAt",
+        "f_label":"Atualizado em",
+        "f_format":"datetime",
+        "f_type":"date",
+        "f_for_view":true},
+
+        {"f_name":"createdById",
+        "f_label":"Criado por",
+        "f_format":"user",
+        "f_type":"text",
+        "f_for_view":true},
+
+        {"f_name":"createdAt",
+        "f_label":"Criado em",
+        "f_format":"datetime",
+        "f_type":"date",
+        "f_for_view":true}
+  
     ]
 
 }
