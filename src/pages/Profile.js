@@ -15,7 +15,7 @@ function Profile(){
             <div>
             <img src={getUser().profilePicture ? getUser().profilePicture.fullPath : pic} class="rounded-circle" alt="..." width="100px" style={{"maxHeight":"100px"}}/>
 
-            <InsertUpdateRecord showTitle={true} configurations={conf} objectId="ac5fee70-1219-42fe-a854-0ca436a27a46"/>
+            <InsertUpdateRecord showTitle={true} configurations={conf} objectId={getUser().id}/>
             </div>
 
         </BasePage>

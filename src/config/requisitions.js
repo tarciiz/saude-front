@@ -1,7 +1,7 @@
 import {getUser} from './session';
 
-//const HOST = 'http://localhost:8083/'
-const HOST = 'https://tarciiz-saude-server.serveo.net/'
+const HOST = 'http://localhost:8083/'
+//const HOST = 'https://tarciiz-saude-server.loca.lt/'
 
 const API = 'api/v1/app/'
 
@@ -13,14 +13,17 @@ const headers = {
 }
 
 export async function get(endpoint){
-    
     try{
         const fetched = await fetch(HOST+API+endpoint, {method:'GET', headers: headers})
         
         if (fetched.ok){
-            const result = await fetched.json();
+            try{
+                const result = await fetched.json();
+                return result
 
-            return result
+            }catch(error){
+                return null;
+            }
         }
         throw fetched
     }catch(error){
@@ -40,9 +43,13 @@ export async function get_params(endpoint, paramsMap){
          console.log('fecthed ', fetched)
         
         if (fetched.ok){
-            const result = await fetched.json();
-            
-            return result
+            try{
+                const result = await fetched.json();
+                return result
+
+            }catch(error){
+                return null;
+            }
         }
         throw fetched
     }catch(error){
@@ -59,9 +66,13 @@ export async function post(endpoint, body){
         const fetched = await fetch(HOST+API+endpoint, {method:'POST', headers: headers, body:JSON.stringify(body)})
         
         if (fetched.ok){
-            const result = await fetched.json();
-            
-            return result
+            try{
+                const result = await fetched.json();
+                return result
+
+            }catch(error){
+                return null;
+            }
         }
         throw fetched
     }catch(error){
@@ -77,9 +88,13 @@ export async function login_user(login, password){
         const fetched = await fetch(HOST+API+'user/login?login='+login+'&password='+password, {method:'POST', headers: headers, body:JSON.stringify({"login":login, "password":password})})
         
         if (fetched.ok){
-            const result = await fetched.json();
-            
-            return result
+            try{
+                const result = await fetched.json();
+                return result
+
+            }catch(error){
+                return null;
+            }
         }
         throw fetched
     }catch(error){

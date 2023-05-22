@@ -8,9 +8,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import 'react-toastify/dist/ReactToastify.css';
 
 function InsertUpdateRecord(props){
-    const [loading, setLoading] = useState(false)
+    // const [loading, setLoading] = useState(false)
 
-    const fields = props.configurations.fields
+    const [fields, setFields] = useState(props.configurations.fields)
     const columns = props.configurations.columns
     const objectName = props.configurations.o_label
     const endpoint_save = props.configurations.endpoints.save
@@ -76,7 +76,11 @@ function InsertUpdateRecord(props){
                         break;
 
                     case "user":
-                        val = existsObject[f.f_name.replace('Id', '')].name
+                        val = existsObject[f.f_name.replace('Id', '')] ? existsObject[f.f_name.replace('Id', '')].name : ''
+
+                        break;
+                    case "money":
+                        val = formatMoney(existsObject[f.f_name])
 
                         break;
 
@@ -102,7 +106,7 @@ function InsertUpdateRecord(props){
 
         return (
                 <div style={{'marginBottom':'15px'}}>
-                    <label for={f.f_name} style={{color:'gray'}}>{f.f_label}</label>
+                    <label htmlFor={f.f_name} style={{color:'gray'}}>{f.f_label}</label>
                     <br/>
             
                     {field}
@@ -118,10 +122,10 @@ function InsertUpdateRecord(props){
             <div className="container">
                 {
                     Array(rownum).fill().map((_, row_i) => (
-                        <div class="row">
+                        <div class="row" key={row_i}>
                             {
                                 Array(columns).fill().map((_, col_i) => (
-                                    <div class="col-sm">
+                                    <div class="col-sm" key={row_i+'_'+col_i}>
                                         {fieldRender(arrays[row_i][col_i])}
                                     </div>
                                 ))
@@ -209,8 +213,6 @@ function InsertUpdateRecord(props){
         if (currentRow.length > 0) {
           rows.push(currentRow);
         }
-        console.log("ROWS", rows)
-      
         return rows;
     }
 
@@ -222,9 +224,7 @@ function InsertUpdateRecord(props){
 
                     resultObj.createdBy = createdBy;
 
-                    get('user/find/'+resultObj.updatedById).then(createdBy=>{
-                        console.log("Username ", createdBy.name)
-    
+                    get('user/find/'+resultObj.updatedById).then(createdBy=>{    
                         resultObj.updatedBy = createdBy;
 
                         console.log('resultObj', resultObj)
@@ -260,6 +260,14 @@ function InsertUpdateRecord(props){
         hour: "2-digit",
         minute: "2-digit"
         });
+    }
+
+    function formatMoney(val){
+        let money;
+
+        money = val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+        return money;
     }
 }
 

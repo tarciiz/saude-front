@@ -4,14 +4,13 @@ import { faHome } from '@fortawesome/free-solid-svg-icons'
 import { faDoorOpen } from '@fortawesome/free-solid-svg-icons'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { faPills } from '@fortawesome/free-solid-svg-icons'
-import { getUser} from '../config/session';
+import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { getUser, logOut} from '../config/session';
 import pic from "../config/pic/pic.png";
 import { Link} from 'react-router-dom';
-import {basePath} from '../config/session';
 
 
-class Menu extends Component {
-  render() {
+function Menu() {
     return (<nav style={{'backgroundColor':'#FFA7A7', 'height':'100%'}} class="shadow">
               <div class="p-3 mb-30">
                 <div class="d-flex align-items-center" >
@@ -34,12 +33,17 @@ class Menu extends Component {
 
                 <li class="nav-item">
                   <Link class="nav-link" to="/medicine" onClick={(e)=>{activeElement(e)}} style={{'color':'#000'}}><FontAwesomeIcon style={{'color': '#000', 'width':'26px'}} icon={faPills} /> &nbsp;
-                    Remédio</Link>
+                    Remédios</Link>
+                </li>
+
+                <li class="nav-item">
+                  <Link class="nav-link" to="/user" onClick={(e)=>{activeElement(e)}} style={{'color':'#000'}}><FontAwesomeIcon style={{'color': '#000', 'width':'26px'}} icon={faUser} /> &nbsp;
+                    Usuários</Link>
                 </li>
 
                 
                 <li class="nav-item">
-                <Link class="nav-link" to="/" onClick={(e)=>{activeElement(e)}} style={{'color':'#000'}}>
+                <Link class="nav-link" to="/" onClick={(e)=>{activeElement(e); logOut() }} style={{'color':'#000'}}>
                   <FontAwesomeIcon style={{'color': '#000', 'width':'26px'}} icon={faDoorOpen} /> &nbsp;
                     Sair
                   </Link>
@@ -47,18 +51,19 @@ class Menu extends Component {
 
               </ul>
             </nav>
-   );
+   )
+
+
+  function activeElement(event){
+      let links = document.getElementById('nav').getElementsByClassName('nav-link')
+      for(let link of links){
+          link.classList.remove('active')
+      }
+
+      let element = event.target
+      element.classList.add('active')
+
   }
-}
-
-function activeElement(event){
-    let links = document.getElementById('nav').getElementsByClassName('nav-link')
-    for(let link of links){
-        link.classList.remove('active')
-    }
-
-    let element = event.target
-    element.classList.add('active')
 
 }
 
